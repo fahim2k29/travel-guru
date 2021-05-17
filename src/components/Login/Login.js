@@ -88,6 +88,7 @@ const Login = () => {
         const { displayName, email } = result.user;
         const signedInUser = { name: displayName, email };
         setLoggedInUser(signedInUser);
+        history.replace(from);
       })
       .catch((error) => {});
   };
@@ -102,6 +103,7 @@ const Login = () => {
         const { displayName, email } = result.user;
         const signedInUser = { name: displayName, email };
         setLoggedInUser(signedInUser);
+        history.replace(from);
       })
       .catch((error) => {});
   };
@@ -139,6 +141,7 @@ const Login = () => {
       setUser(newUserInfo);
       setLoggedInUser(newUserInfo);
       updateUsername(user.name);
+      history.replace(from);
       verifyEmail();
     })
     .catch((error) => {
@@ -219,7 +222,7 @@ const Login = () => {
           <Typography component="h1" variant="h5">
           {newUser ? 'Sign Up' : 'Sign In'}
           </Typography>          
-          <form className={classes.form} noValidate onSubmit={handleSubmit}>
+          <form className={classes.form} onSubmit={handleSubmit}>
             
             {newUser && <TextField
               onBlur={handleBlur}
